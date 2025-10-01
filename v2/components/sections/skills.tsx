@@ -158,8 +158,8 @@ export function Skills() {
 
   return (
     <FadeIn>
-      <section id="skills" className="container mx-auto scroll-mt-24 px-4 py-16 md:py-24">
-        <h2 className="mb-8 text-3xl font-semibold tracking-tight">Skills</h2>
+  <section id="skills" className="container mx-auto scroll-mt-24 px-4 py-2 md:py-4">
+        <h2 className="mb-4 text-3xl font-semibold tracking-tight">Skills</h2>
 
         {/* Grouped skills */}
         <TooltipProvider>

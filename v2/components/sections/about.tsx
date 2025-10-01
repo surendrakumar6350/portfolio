@@ -60,7 +60,7 @@ export function About() {
   ];
 
   return (
-    <section id="about" className="container mx-auto scroll-mt-24 px-4 py-16 md:py-24">
+  <section id="about" className="container mx-auto scroll-mt-24 px-4 py-2 md:py-4">
       <div className="grid items-start gap-10 lg:grid-cols-12">
         {/* Left: Text content */}
         <div className="lg:col-span-7 space-y-8">

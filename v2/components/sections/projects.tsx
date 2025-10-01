@@ -75,7 +75,7 @@ export function Projects() {
 
   return (
     <FadeIn>
-      <section id="projects" className="container mx-auto scroll-mt-24 px-4 py-16 md:py-24">
+  <section id="projects" className="container mx-auto scroll-mt-24 px-4 py-2 md:py-4">
   <SectionHeader title="Projects" subtitle="Selected work and experiments." />
 
         {/* Featured banner */}
