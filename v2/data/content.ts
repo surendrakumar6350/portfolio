@@ -6,6 +6,9 @@ export type Project = {
   demo?: string;
   image?: string;
   features?: string[];
+  status?: "featured" | "in-progress" | "shipped" | "open-source";
+  category?: "web-app" | "open-source" | "library" | "tool";
+  metrics?: { stars?: string; users?: string; downloads?: string };
 };
 
 export type ExperienceItem = {
@@ -114,20 +117,26 @@ export const projects: Project[] = [
     stack: ["Next.js", "TypeScript", "Postgres", "Prisma"],
     github: "https://github.com/your/saas-dashboard",
     demo: "https://saas.example.com",
-    image: "/projects/saas-dashboard.png",
+    image: "/projects/placeholder-saas.svg",
     features: [
       "User authentication with NextAuth.js",
       "Real-time analytics with Chart.js",
       "Subscription management with Stripe",
       "Responsive dashboard layout",
       "Dark mode support"
-    ]
+    ],
+    status: "featured",
+    category: "web-app",
+    metrics: { users: "5k+" }
   },
   {
     title: "Realtime Chat",
     description: "Socket.io chat with rooms, presence, and file uploads.",
     stack: ["React", "Node.js", "MongoDB", "Socket.io"],
     github: "https://github.com/your/realtime-chat",
+    image: "/projects/placeholder-chat.svg",
+    status: "in-progress",
+    category: "web-app",
   },
   {
     title: "E-commerce Store",
@@ -135,24 +144,38 @@ export const projects: Project[] = [
     stack: ["Next.js", "Stripe", "MongoDB"],
     github: "https://github.com/your/ecommerce",
     demo: "https://shop.example.com",
+    image: "/projects/placeholder-store.svg",
+    status: "shipped",
+    category: "web-app",
   },
   {
     title: "Component Library",
     description: "Reusable UI components and docs site.",
     stack: ["React", "TypeScript", "Tailwind CSS"],
     github: "https://github.com/your/ui-lib",
+    image: "/projects/placeholder-lib.svg",
+    status: "open-source",
+    category: "library",
+    metrics: { stars: "1k+" }
   },
   {
     title: "Markdown Blog",
     description: "Static blog with MDX, tags, and search.",
     stack: ["Next.js", "MDX"],
     github: "https://github.com/your/mdx-blog",
+    image: "/projects/placeholder-blog.svg",
+    status: "shipped",
+    category: "web-app",
   },
   {
     title: "API Boilerplate",
     description: "Express API with auth, testing, and CI.",
     stack: ["Express", "TypeScript", "Jest"],
     github: "https://github.com/your/api-starter",
+    image: "/projects/placeholder-api.svg",
+    status: "open-source",
+    category: "open-source",
+    metrics: { downloads: "10k+" }
   },
 ];
 
