@@ -74,16 +74,17 @@ export function Hero() {
 	return (
 		<FadeIn>
 					<section id="home" className="container mx-auto scroll-mt-24 px-4 py-16 md:py-24">
-						<div className="mx-auto max-w-4xl space-y-6 text-center">
+						<div className="mx-auto max-w-4xl space-y-4 md:space-y-6 text-center">
 							{/* Typing headline */}
 							<TypingHeadline name={profile.name} />
+							<div className="mx-auto mt-2 h-1.5 w-20 rounded-full bg-primary/20" />
 
 							{/* Strong tagline */}
-										<p className="mx-auto max-w-prose text-2xl font-semibold tracking-tight text-primary">
+										<p className="animate-in mx-auto max-w-prose text-lg md:text-xl font-semibold tracking-tight text-primary/90" style={{ animationDelay: "80ms" }}>
 											{profile.title}
 										</p>
 
-							<p className="mx-auto max-w-prose text-base text-muted-foreground">{profile.tagline}</p>
+							<p className="animate-in mx-auto -mt-1 max-w-prose text-sm md:text-base text-muted-foreground leading-relaxed" style={{ animationDelay: "140ms" }}>{profile.tagline}</p>
 
 							<div className="flex flex-wrap justify-center gap-3">
 											<Button
@@ -112,7 +113,7 @@ export function Hero() {
 						</div>
 
 						{/* Stats with icons, glow and count up */}
-						<div className="mx-auto mt-12 w-full max-w-4xl">
+						<div className="mx-auto mt-8 md:mt-12 w-full max-w-4xl">
 							<div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
 											{stats.map((s) => {
 									const Icon = statIcon(s.label);
@@ -161,9 +162,9 @@ export function Hero() {
 			}, [full]);
 
 			return (
-				<h1 className="mx-auto max-w-3xl text-balance text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl">
-					{text}
-					<span className={`ml-0.5 inline-block w-[1ch] ${showCursor ? "opacity-100" : "opacity-0"}`}>|</span>
+				<h1 className="animate-in mx-auto max-w-3xl text-balance text-3xl md:text-5xl sm:text-4xl font-bold tracking-tight leading-tight" style={{ animationDelay: "20ms" }}>
+					<span className="bg-gradient-to-r from-primary/95 to-foreground/80 bg-clip-text text-transparent">{text}</span>
+					<span className={`ml-0.5 inline-block w-[1ch] align-baseline ${showCursor ? "opacity-100" : "opacity-0"}`}>|</span>
 				</h1>
 			);
 		}

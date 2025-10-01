@@ -5,7 +5,7 @@ import { ModeToggle } from "@/components/mode-toggle";
 import { cn } from "@/lib/utils";
 import * as Dialog from "@radix-ui/react-dialog";
 import { Button } from "@/components/ui/button";
-import { Menu, Github, Linkedin, Mail, FileText, PenTool, Code2 } from "lucide-react";
+import { Menu, Github, Linkedin, Mail, FileText, PenTool, Code2, X } from "lucide-react";
 import { profile } from "@/data/content";
 
 const links = [
@@ -13,7 +13,6 @@ const links = [
   { href: "#about", label: "About" },
   { href: "#projects", label: "Projects" },
   { href: "#skills", label: "Skills" },
-  { href: "#experience", label: "Experience" },
   { href: "#contact", label: "Contact" },
 ];
 
@@ -70,18 +69,49 @@ export function SiteHeader() {
             <Dialog.Trigger asChild>
               <Button size="icon" variant="ghost" aria-label="Open menu"><Menu className="h-5 w-5" /></Button>
             </Dialog.Trigger>
-            <Dialog.Content className="fixed inset-0 z-50 bg-background/95 backdrop-blur p-6">
-              <div className="mx-auto mt-10 flex max-w-sm flex-col items-center gap-4">
-                {links.map((l) => (
-                  <Dialog.Close asChild key={l.href}>
-                    <Link href={l.href} className="text-lg" aria-label={l.label}>
-                      {l.label}
-                    </Link>
-                  </Dialog.Close>
-                ))}
-                <div className="mt-4"><ModeToggle /></div>
-              </div>
-            </Dialog.Content>
+            <Dialog.Portal>
+              {/* Click outside and ESC will close by default */}
+              <Dialog.Overlay className="dialog-overlay fixed inset-0 z-50 bg-background/95 backdrop-blur" style={{ pointerEvents: 'auto' }} />
+              <Dialog.Content className="dialog-content fixed inset-0 z-[60] p-4 sm:p-6 flex flex-col items-center justify-center">
+                {/* Top bar with brand and close */}
+                <div className="mx-auto flex max-w-sm items-center justify-between rounded-xl border bg-card/95 px-4 py-3 shadow-sm">
+                  <div className="inline-flex items-center gap-2">
+                    <span className="relative flex h-8 w-8 items-center justify-center rounded-md bg-primary text-primary-foreground shadow-sm ring-1 ring-primary/20">
+                      <Code2 className="h-4 w-4 drop-shadow" />
+                    </span>
+                    <span className="font-semibold">Menu</span>
+                  </div>
+                  <div className="inline-flex items-center gap-1">
+                    <ModeToggle />
+                    <Dialog.Close asChild>
+                      <Button size="icon" variant="ghost" aria-label="Close menu">
+                        <X className="h-5 w-5" />
+                      </Button>
+                    </Dialog.Close>
+                  </div>
+                </div>
+
+                {/* Nav list card */}
+                <div className="mx-auto mt-6 w-full max-w-sm rounded-2xl border bg-card/95 p-2 shadow-xl ring-1 ring-border/40">
+                  <nav className="flex flex-col gap-1.5">
+                    {links.map((l, i) => (
+                      <Dialog.Close asChild key={l.href}>
+                        <Link
+                          href={l.href}
+                          aria-label={l.label}
+                          className="menu-item block rounded-md px-4 py-3 text-base font-medium text-foreground hover:bg-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                          style={{ ['--delay' as any]: `${80 + i * 30}ms` }}
+                        >
+                          {l.label}
+                        </Link>
+                      </Dialog.Close>
+                    ))}
+                  </nav>
+                </div>
+
+                {/* Footer actions removed to keep key options at the top for better UX */}
+              </Dialog.Content>
+            </Dialog.Portal>
           </Dialog.Root>
         </div>
       </div>
