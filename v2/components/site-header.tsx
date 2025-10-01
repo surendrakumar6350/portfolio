@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import { useState } from "react";
 import { NavigationMenu, NavigationMenuItem, NavigationMenuLink, NavigationMenuList } from "@/components/ui/navigation-menu";
 import { ModeToggle } from "@/components/mode-toggle";
 import { cn } from "@/lib/utils";
@@ -65,16 +66,21 @@ export function SiteHeader() {
           <ModeToggle />
         </div>
         <div className="md:hidden">
-          <Dialog.Root>
-            <Dialog.Trigger asChild>
-              <Button size="icon" variant="ghost" aria-label="Open menu"><Menu className="h-5 w-5" /></Button>
-            </Dialog.Trigger>
-            <Dialog.Portal>
-              {/* Click outside and ESC will close by default */}
-              <Dialog.Overlay className="dialog-overlay fixed inset-0 z-50 bg-background/95 backdrop-blur" style={{ pointerEvents: 'auto' }} />
-              <Dialog.Content className="dialog-content fixed inset-0 z-[60] p-4 sm:p-6 flex flex-col items-center justify-center">
+          {/* Controlled dialog for reliable overlay close */}
+          {(() => {
+            const [open, setOpen] = useState(false);
+            return (
+              <Dialog.Root open={open} onOpenChange={setOpen}>
+                <Dialog.Trigger asChild>
+                  <Button size="icon" variant="ghost" aria-label="Open menu"><Menu className="h-5 w-5" /></Button>
+                </Dialog.Trigger>
+                <Dialog.Portal>
+                  <Dialog.Close asChild>
+                    <Dialog.Overlay className="dialog-overlay fixed inset-0 z-50 bg-background/95 backdrop-blur cursor-pointer" />
+                  </Dialog.Close>
+                  <Dialog.Content className="dialog-content fixed inset-0 z-[60] p-4 sm:p-6 flex flex-col items-center justify-center">
                 {/* Top bar with brand and close */}
-                <div className="mx-auto flex max-w-sm items-center justify-between rounded-xl border bg-card/95 px-4 py-3 shadow-sm">
+                <div className="pointer-events-auto mx-auto flex max-w-sm items-center justify-between rounded-xl border bg-card/95 px-4 py-3 shadow-sm">
                   <div className="inline-flex items-center gap-2">
                     <span className="relative flex h-8 w-8 items-center justify-center rounded-md bg-primary text-primary-foreground shadow-sm ring-1 ring-primary/20">
                       <Code2 className="h-4 w-4 drop-shadow" />
@@ -92,7 +98,7 @@ export function SiteHeader() {
                 </div>
 
                 {/* Nav list card */}
-                <div className="mx-auto mt-6 w-full max-w-sm rounded-2xl border bg-card/95 p-2 shadow-xl ring-1 ring-border/40">
+                <div className="pointer-events-auto mx-auto mt-6 w-full max-w-sm rounded-2xl border bg-card/95 p-2 shadow-xl ring-1 ring-border/40">
                   <nav className="flex flex-col gap-1.5">
                     {links.map((l, i) => (
                       <Dialog.Close asChild key={l.href}>
@@ -111,8 +117,10 @@ export function SiteHeader() {
 
                 {/* Footer actions removed to keep key options at the top for better UX */}
               </Dialog.Content>
-            </Dialog.Portal>
-          </Dialog.Root>
+                </Dialog.Portal>
+              </Dialog.Root>
+            );
+          })()}
         </div>
       </div>
     </header>

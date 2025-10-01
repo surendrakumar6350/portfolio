@@ -135,7 +135,7 @@ export function About() {
                   className="pointer-events-none absolute inset-0 -z-10 rounded-full bg-gradient-to-br from-primary/20 to-transparent blur-2xl"
                 />
                 <Avatar className="h-36 w-36 ring-2 ring-primary/20 shadow-lg">
-                  <AvatarImage src="/avatar.jpg" alt={`${profile.name} avatar`} />
+                  <AvatarImage src="/avatar-new.jpg" alt={`${profile.name} avatar`} />
                   <AvatarFallback className="bg-accent text-foreground/80">
                     {initials}
                   </AvatarFallback>
