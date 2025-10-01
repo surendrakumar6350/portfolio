@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, type CSSProperties } from "react";
 import { NavigationMenu, NavigationMenuItem, NavigationMenuLink, NavigationMenuList } from "@/components/ui/navigation-menu";
 import { ModeToggle } from "@/components/mode-toggle";
 import { cn } from "@/lib/utils";
@@ -18,6 +18,7 @@ const links = [
 ];
 
 export function SiteHeader() {
+  const [open, setOpen] = useState(false);
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       {/* Skip to content for accessibility */}
@@ -67,18 +68,15 @@ export function SiteHeader() {
         </div>
         <div className="md:hidden">
           {/* Controlled dialog for reliable overlay close */}
-          {(() => {
-            const [open, setOpen] = useState(false);
-            return (
-              <Dialog.Root open={open} onOpenChange={setOpen}>
-                <Dialog.Trigger asChild>
-                  <Button size="icon" variant="ghost" aria-label="Open menu"><Menu className="h-5 w-5" /></Button>
-                </Dialog.Trigger>
-                <Dialog.Portal>
-                  <Dialog.Close asChild>
-                    <Dialog.Overlay className="dialog-overlay fixed inset-0 z-50 bg-background/95 backdrop-blur cursor-pointer" />
-                  </Dialog.Close>
-                  <Dialog.Content className="dialog-content fixed inset-0 z-[60] p-4 sm:p-6 flex flex-col items-center justify-center">
+          <Dialog.Root open={open} onOpenChange={setOpen}>
+            <Dialog.Trigger asChild>
+              <Button size="icon" variant="ghost" aria-label="Open menu"><Menu className="h-5 w-5" /></Button>
+            </Dialog.Trigger>
+            <Dialog.Portal>
+              <Dialog.Close asChild>
+                <Dialog.Overlay className="dialog-overlay fixed inset-0 z-50 bg-background/95 backdrop-blur cursor-pointer" />
+              </Dialog.Close>
+              <Dialog.Content className="dialog-content fixed inset-0 z-[60] p-4 sm:p-6 flex flex-col items-center justify-center">
                 {/* Top bar with brand and close */}
                 <div className="pointer-events-auto mx-auto flex max-w-sm items-center justify-between rounded-xl border bg-card/95 px-4 py-3 shadow-sm">
                   <div className="inline-flex items-center gap-2">
@@ -100,27 +98,26 @@ export function SiteHeader() {
                 {/* Nav list card */}
                 <div className="pointer-events-auto mx-auto mt-6 w-full max-w-sm rounded-2xl border bg-card/95 p-2 shadow-xl ring-1 ring-border/40">
                   <nav className="flex flex-col gap-1.5">
-                    {links.map((l, i) => (
-                      <Dialog.Close asChild key={l.href}>
-                        <Link
-                          href={l.href}
-                          aria-label={l.label}
-                          className="menu-item block rounded-md px-4 py-3 text-base font-medium text-foreground hover:bg-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-                          style={{ ['--delay' as any]: `${80 + i * 30}ms` }}
-                        >
-                          {l.label}
-                        </Link>
-                      </Dialog.Close>
-                    ))}
+                    {links.map((l, i) => {
+                      const delayStyle = { ["--delay" as string]: `${80 + i * 30}ms` } as CSSProperties;
+                      return (
+                        <Dialog.Close asChild key={l.href}>
+                          <Link
+                            href={l.href}
+                            aria-label={l.label}
+                            className="menu-item block rounded-md px-4 py-3 text-base font-medium text-foreground hover:bg-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                            style={delayStyle}
+                          >
+                            {l.label}
+                          </Link>
+                        </Dialog.Close>
+                      );
+                    })}
                   </nav>
                 </div>
-
-                {/* Footer actions removed to keep key options at the top for better UX */}
               </Dialog.Content>
-                </Dialog.Portal>
-              </Dialog.Root>
-            );
-          })()}
+            </Dialog.Portal>
+          </Dialog.Root>
         </div>
       </div>
     </header>

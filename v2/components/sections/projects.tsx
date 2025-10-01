@@ -24,7 +24,6 @@ import {
   Boxes,
   Database as DatabaseIcon,
   Sparkles,
-  Hourglass,
 } from "lucide-react";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Input } from "@/components/ui/input";

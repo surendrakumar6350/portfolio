@@ -2,7 +2,7 @@
 
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { skills as flatSkills, skillGroups, certifications } from "@/data/content";
+import { skillGroups, certifications } from "@/data/content";
 import { FadeIn } from "@/components/animations";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import SectionHeader from "@/components/section-header";
@@ -81,8 +81,7 @@ const competencies = [
   { title: "DevOps", desc: "Dockerized apps, GitHub Actions CI/CD pipelines.", icon: Boxes },
 ] as const;
 
-const dailyTools = ["Git", "VS Code", "Postman", "Figma"] as const;
-const softSkills = ["Agile", "Collaboration", "Mentoring"] as const;
+// Note: daily tools and soft skills rendered inline below to avoid unused variable lint
 
 export function Skills() {
   return (
