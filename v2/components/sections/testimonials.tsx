@@ -1,10 +1,11 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import SectionHeader from "@/components/section-header";
 import { testimonials } from "@/data/content";
 
 export function Testimonials() {
   return (
     <section id="testimonials" className="container mx-auto px-4 py-16 md:py-24">
-      <h2 className="mb-8 text-3xl font-semibold tracking-tight">Testimonials</h2>
+      <SectionHeader title="Testimonials" subtitle="What clients and colleagues say about working with me." />
       <div className="grid gap-6 sm:grid-cols-2">
         {testimonials.map((t) => (
           <Card key={t.name}>

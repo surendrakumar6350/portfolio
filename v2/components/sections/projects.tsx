@@ -28,6 +28,8 @@ import {
 } from "lucide-react";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Input } from "@/components/ui/input";
+import Image from "next/image";
+import SectionHeader from "@/components/section-header";
 
 export function Projects() {
   const [selectedProject, setSelectedProject] = useState<(typeof projects)[0] | null>(null);
@@ -74,14 +76,21 @@ export function Projects() {
   return (
     <FadeIn>
       <section id="projects" className="container mx-auto scroll-mt-24 px-4 py-16 md:py-24">
-        <h2 className="mb-8 text-3xl font-semibold tracking-tight">Projects</h2>
+  <SectionHeader title="Projects" subtitle="Selected work and experiments." />
 
         {/* Featured banner */}
         {featured && (
           <Card className="mb-8 overflow-hidden border bg-gradient-to-br from-primary/5 via-background to-primary/5">
             <CardContent className="flex flex-col gap-4 p-4 sm:flex-row sm:items-center">
-              <div className="aspect-video w-full overflow-hidden rounded-lg sm:w-72">
-                <img src={featured.image ?? "/projects/placeholder-saas.svg"} alt={`${featured.title} preview`} className="h-full w-full max-w-full object-cover" loading="lazy" />
+              <div className="relative aspect-video w-full overflow-hidden rounded-lg sm:w-72">
+                <Image
+                  src={featured.image ?? "/projects/placeholder-saas.svg"}
+                  alt={`${featured.title} preview`}
+                  fill
+                  sizes="(max-width: 640px) 100vw, 18rem"
+                  className="object-cover"
+                  priority={false}
+                />
               </div>
               <div className="flex-1">
                 <div className="mb-2 flex items-center gap-2">
@@ -146,16 +155,27 @@ export function Projects() {
                 <Card
                   key={p.title}
                   className={`group cursor-pointer overflow-hidden transition-all duration-300 hover:shadow-lg ${isFeatured ? "border-primary/40" : ""}`}
+                  role="button"
+                  tabIndex={0}
+                  aria-label={`Open details for ${p.title}`}
                   onClick={() => setSelectedProject(p)}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" || e.key === " ") {
+                      e.preventDefault();
+                      setSelectedProject(p);
+                    }
+                  }}
                 >
                   <CardHeader>
                     {p.image && (
                       <div className="relative aspect-video overflow-hidden rounded-lg">
-                        <img
+                        <Image
                           src={p.image}
                           alt={`${p.title} preview`}
-                          className="h-full w-full max-w-full object-cover transition-transform duration-300 group-hover:scale-[1.03]"
-                          loading="lazy"
+                          fill
+                          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                          className="object-cover transition-transform duration-300 group-hover:scale-[1.03]"
+                          priority={false}
                         />
                         {/* Status badges */}
                         <div className="pointer-events-none absolute left-2 top-2 flex gap-2">
@@ -204,7 +224,7 @@ export function Projects() {
                   <CardFooter className="gap-2">
                     {p.github && (
                       <Button asChild variant="outline" size="sm" className="group" onClick={(e) => e.stopPropagation()}>
-                        <Link href={p.github} target="_blank" rel="noreferrer" onClick={(e) => e.stopPropagation()}>
+                        <Link aria-label={`View ${p.title} on GitHub`} href={p.github} target="_blank" rel="noreferrer" onClick={(e) => e.stopPropagation()}>
                           <Github className="mr-2 h-4 w-4" />
                           <span>GitHub</span>
                         </Link>
@@ -212,7 +232,7 @@ export function Projects() {
                     )}
                     {p.demo && (
                       <Button asChild size="sm" className="group" onClick={(e) => e.stopPropagation()}>
-                        <Link href={p.demo} target="_blank" rel="noreferrer" onClick={(e) => e.stopPropagation()}>
+                        <Link aria-label={`Open live demo for ${p.title}`} href={p.demo} target="_blank" rel="noreferrer" onClick={(e) => e.stopPropagation()}>
                           <ExternalLink className="mr-2 h-4 w-4 transition-transform group-hover:translate-x-0.5" />
                           <span>Live Demo</span>
                         </Link>
@@ -238,11 +258,13 @@ export function Projects() {
                 <DialogDescription>{selectedProject.description}</DialogDescription>
               </DialogHeader>
               {selectedProject.image && (
-                <div className="aspect-video overflow-hidden rounded-lg">
-                  <img
+                <div className="relative aspect-video overflow-hidden rounded-lg">
+                  <Image
                     src={selectedProject.image}
                     alt={`${selectedProject.title} preview`}
-                    className="h-full w-full object-cover"
+                    fill
+                    sizes="(max-width: 768px) 90vw, 70vw"
+                    className="object-cover"
                   />
                 </div>
               )}

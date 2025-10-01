@@ -13,6 +13,7 @@ import { Mail, Github, Linkedin, MapPin, Download } from "lucide-react";
 import { profile } from "@/data/content";
 import { useToast } from "@/components/ui/use-toast";
 import { FadeIn } from "@/components/animations";
+import SectionHeader from "@/components/section-header";
 
 const contactSchema = z.object({
   name: z.string().min(2, "Name is too short"),
@@ -111,7 +112,7 @@ export function Contact() {
   return (
     <FadeIn>
   <section id="contact" className="container mx-auto scroll-mt-24 px-4 py-16 md:py-24">
-        <h2 className="mb-8 text-3xl font-semibold tracking-tight">Contact</h2>
+  <SectionHeader title="Contact" subtitle="Let’s build something great together." />
         
         <div className="grid gap-8 md:grid-cols-2">
           {/* Contact information */}

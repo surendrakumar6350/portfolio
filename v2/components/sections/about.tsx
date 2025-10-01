@@ -25,6 +25,7 @@ import {
 } from "lucide-react";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import { Button } from "@/components/ui/button";
+import SectionHeader from "@/components/section-header";
 import { profile, skillGroups } from "@/data/content";
 // Progress and duplicate Tooltip import removed as Core Stack was dropped
 
@@ -67,7 +68,7 @@ export function About() {
         <div className="lg:col-span-7 space-y-8">
           {/* Heading, tagline and intro */}
           <div className="space-y-4">
-            <h2 className="text-3xl font-semibold tracking-tight">About</h2>
+            <SectionHeader title="About" />
             <p className="text-xl leading-snug tracking-tight text-foreground">
               Building fast, accessible web apps that scale.
             </p>

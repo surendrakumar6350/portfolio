@@ -8,12 +8,13 @@ import { experience, education } from "@/data/content";
 import { cn } from "@/lib/utils";
 import { MapPin, Calendar, Briefcase, GraduationCap } from "lucide-react";
 import { FadeIn } from "@/components/animations";
+import SectionHeader from "@/components/section-header";
 
 export function Experience() {
   return (
     <FadeIn>
   <section id="experience" className="container mx-auto scroll-mt-24 px-4 py-16 md:py-24">
-        <h2 className="mb-6 text-3xl font-semibold tracking-tight">Experience & Education</h2>
+  <SectionHeader title="Experience & Education" subtitle="A quick look at my journey and impact." />
         <Tabs defaultValue="experience">
           <TabsList className="w-full md:w-auto">
             <TabsTrigger value="experience" className="flex-1 md:flex-none">
