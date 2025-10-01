@@ -17,9 +17,29 @@ import {
   Accessibility,
   ArrowRight,
   Globe2,
+  Atom,
+  Wind,
+  GitBranch,
+  KeyRound,
+  Network,
+  FlaskConical,
+  Bot,
+  Boxes,
+  ServerCog,
+  Leaf,
+  Triangle,
+  FileCode,
+  SquareCode,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { profile, skillGroups } from "@/data/content";
+import { Progress } from "@/components/ui/progress";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 export function About() {
   const highlightItems = [
@@ -42,6 +62,65 @@ export function About() {
     if (key.includes("back")) return Server;
     if (key.includes("data")) return Database;
     return Wrench;
+  };
+
+  const groupAccent = (group: string) => {
+    const key = group.toLowerCase();
+    if (key.includes("front")) return "border-l-2 border-primary/40 bg-gradient-to-br from-primary/5 to-background";
+    if (key.includes("back")) return "border-l bg-gradient-to-br from-foreground/[0.03] to-background";
+    if (key.includes("data")) return "border-l bg-gradient-to-br from-foreground/[0.03] to-background";
+    return "border-l bg-gradient-to-br from-foreground/[0.03] to-background";
+  };
+
+  const categoryLevels: Record<string, number> = {
+    Frontend: 90,
+    Backend: 82,
+    Database: 78,
+    Tools: 84,
+  };
+
+  const skillInfo: Record<string, string> = {
+    React: "3+ years experience",
+    "Next.js": "2+ years, SSR/ISR/SEO",
+    TypeScript: "2+ years, strict types",
+    "Tailwind CSS": "2+ years, utility-first",
+    "shadcn/ui": "Design system experience",
+    "Node.js": "3+ years, APIs & services",
+    Express: "API design & middleware",
+    GraphQL: "Schema, resolvers, caching",
+    "REST APIs": "Typed endpoints, validators",
+    JWT: "Auth & session patterns",
+    MongoDB: "Schema design & indexing",
+    Mongoose: "Models & population",
+    Prisma: "ORM, migrations",
+    Git: "Daily workflow",
+    "GitHub Actions": "CI/CD pipelines",
+    Docker: "Images & compose",
+    Jest: "Unit/integration tests",
+    Playwright: "E2E & accessibility",
+  };
+
+  const skillIcon = (skill: string) => {
+    const key = skill.toLowerCase();
+    if (key === "react") return Atom;
+    if (key === "next.js" || key === "nextjs") return SquareCode;
+    if (key === "typescript") return FileCode;
+    if (key.includes("tailwind")) return Wind;
+    if (key.includes("shadcn")) return Boxes;
+    if (key === "node.js" || key === "nodejs") return ServerCog;
+    if (key === "express") return Network;
+    if (key === "graphql") return Network;
+    if (key.includes("rest")) return Network;
+    if (key === "jwt") return KeyRound;
+    if (key === "mongodb") return Leaf;
+    if (key === "mongoose") return Leaf;
+    if (key === "prisma") return Triangle;
+    if (key === "git") return GitBranch;
+    if (key.includes("actions")) return Bot;
+    if (key === "docker") return Boxes;
+    if (key === "jest") return FlaskConical;
+    if (key === "playwright") return FlaskConical;
+    return Code2;
   };
 
   const initials = profile.name.split(" ").map((n) => n[0]).join("");
@@ -150,40 +229,6 @@ export function About() {
           </Card>
         </div>
 
-        {/* Core Stack (full width) */}
-        <div className="lg:col-span-12">
-          <div className="mt-2">
-            <h3 className="mb-3 text-lg font-semibold">Core Stack</h3>
-            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-              {Object.entries(skillGroups).map(([group, items]) => {
-                const Icon = groupIcon(group);
-                return (
-                  <Card key={group} className="transition-all hover:shadow-sm hover:border-primary/30">
-                    <CardHeader className="pb-2">
-                      <CardTitle className="flex items-center gap-2 text-base">
-                        <Icon className="h-4 w-4 text-primary" />
-                        {group}
-                      </CardTitle>
-                    </CardHeader>
-                    <CardContent>
-                      <div className="flex flex-wrap gap-2">
-                        {items.map((s) => (
-                          <Badge
-                            key={s}
-                            variant="secondary"
-                            className="text-xs transition-all hover:scale-105 hover:bg-secondary/80 focus-visible:ring-2 focus-visible:ring-primary/40"
-                          >
-                            {s}
-                          </Badge>
-                        ))}
-                      </div>
-                    </CardContent>
-                  </Card>
-                );
-              })}
-            </div>
-          </div>
-        </div>
       </div>
     </section>
   );
