@@ -9,6 +9,7 @@ import { cn } from "@/lib/utils";
 import { MapPin, Calendar, Briefcase, GraduationCap } from "lucide-react";
 import { FadeIn } from "@/components/animations";
 import SectionHeader from "@/components/section-header";
+import Image from "next/image";
 
 export function Experience() {
   return (
@@ -48,10 +49,12 @@ export function Experience() {
                     <CardHeader className="pb-3">
                       {job.logo && (
                         <div className="absolute right-4 top-4 h-10 w-10 opacity-25">
-                          <img 
-                            src={job.logo} 
-                            alt={`${job.title} logo`} 
-                            className="h-full w-full object-contain" 
+                          <Image
+                            src={job.logo}
+                            alt={`${job.title} logo`}
+                            fill
+                            sizes="40px"
+                            className="object-contain"
                           />
                         </div>
                       )}
@@ -115,10 +118,12 @@ export function Experience() {
                   <CardHeader className="pb-3">
                     {edu.logo && (
                       <div className="absolute right-4 top-4 h-10 w-10 opacity-25">
-                        <img 
-                          src={edu.logo} 
-                          alt={`${edu.school} logo`} 
-                          className="h-full w-full object-contain" 
+                        <Image
+                          src={edu.logo}
+                          alt={`${edu.school} logo`}
+                          fill
+                          sizes="40px"
+                          className="object-contain"
                         />
                       </div>
                     )}

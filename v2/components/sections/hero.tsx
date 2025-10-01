@@ -76,7 +76,7 @@ export function Hero() {
 					<section id="home" className="container mx-auto scroll-mt-24 px-4 py-16 md:py-24">
 						<div className="mx-auto max-w-4xl space-y-6 text-center">
 							{/* Typing headline */}
-							<TypingHeadline name={profile.name} title={profile.title} />
+							<TypingHeadline name={profile.name} />
 
 							{/* Strong tagline */}
 										<p className="mx-auto max-w-prose text-2xl font-semibold tracking-tight text-primary">
@@ -140,8 +140,8 @@ export function Hero() {
 	);
 }
 
-		function TypingHeadline({ name, title }: { name: string; title: string }) {
-			const full = useMemo(() => `Hi, I'm ${name}`, [name, title]);
+		function TypingHeadline({ name }: { name: string }) {
+			const full = useMemo(() => `Hi, I'm ${name}`, [name]);
 			const [text, setText] = useState("");
 			const [showCursor, setShowCursor] = useState(true);
 

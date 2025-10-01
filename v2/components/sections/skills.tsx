@@ -31,9 +31,10 @@ import {
 } from "lucide-react";
 
 export function Skills() {
-  // Define categories using existing content and split Tools into DevOps and Testing
-  const devOpsTools = ["Git", "GitHub Actions", "Docker"] as const;
-  const testingTools = ["Jest", "Playwright"] as const;
+  // Define precise unions for Tools to avoid any casts
+  type ToolsUnion = (typeof skillGroups)["Tools"][number];
+  const devOpsTools: readonly ToolsUnion[] = ["Git", "GitHub Actions", "Docker"] as const;
+  const testingTools: readonly ToolsUnion[] = ["Jest", "Playwright"] as const;
 
   const categories: Array<{
     key: string;
@@ -70,7 +71,7 @@ export function Skills() {
     {
       key: "devops",
       title: "DevOps / Tools",
-      items: skillGroups.Tools.filter((t) => devOpsTools.includes(t as any)),
+      items: skillGroups.Tools.filter((t): t is ToolsUnion => devOpsTools.includes(t as ToolsUnion)),
       icon: Boxes,
       accent: "border-l bg-gradient-to-br from-foreground/[0.03] to-background",
       span: "lg:col-span-2 xl:col-span-2",
@@ -78,7 +79,7 @@ export function Skills() {
     {
       key: "testing",
       title: "Testing",
-      items: skillGroups.Tools.filter((t) => testingTools.includes(t as any)),
+      items: skillGroups.Tools.filter((t): t is ToolsUnion => testingTools.includes(t as ToolsUnion)),
       icon: FlaskConical,
       accent: "border-l bg-gradient-to-br from-foreground/[0.03] to-background",
       span: "lg:col-span-2 xl:col-span-2",

@@ -1,6 +1,6 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import Link from "next/link";
 import {
@@ -9,8 +9,7 @@ import {
   Briefcase,
   CalendarCheck,
   Code2,
-  Server,
-  Database,
+  
   Wrench,
   Gauge,
   ShieldCheck,
@@ -18,7 +17,6 @@ import {
   ArrowRight,
   Globe2,
   Atom,
-  Wind,
   ServerCog,
   FileCode,
   SquareCode,
