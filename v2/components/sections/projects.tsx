@@ -62,6 +62,7 @@ export function Projects() {
     const inProgress = p.status === "in-progress" || (!p.demo && !featured);
     return { openSource, featured, inProgress };
   };
+  // Use new featured project from updated data
   const featured = projects.find((p) => p.status === "featured") ?? projects[0];
 
   const filtered = projects.filter((p) => {
@@ -167,36 +168,6 @@ export function Projects() {
                   }}
                 >
                   <CardHeader>
-                    {p.image && (
-                      <div className="relative aspect-video overflow-hidden rounded-lg">
-                        <Image
-                          src={p.image}
-                          alt={`${p.title} preview`}
-                          fill
-                          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                          className="object-cover transition-transform duration-300 group-hover:scale-[1.03]"
-                          priority={false}
-                        />
-                        {/* Status badges */}
-                        <div className="pointer-events-none absolute left-2 top-2 flex gap-2">
-                          {status.openSource && (
-                            <Badge variant="secondary" className="pointer-events-auto">Open Source</Badge>
-                          )}
-                        </div>
-                        <div className="pointer-events-none absolute right-2 top-2 flex gap-2">
-                          {status.featured && (
-                            <Badge className="pointer-events-auto flex items-center gap-1">
-                              <Sparkles className="h-3.5 w-3.5" /> Featured
-                            </Badge>
-                          )}
-                          {!status.featured && status.inProgress && (
-                            <Badge variant="secondary" className="pointer-events-auto flex items-center gap-1">
-                              <Hourglass className="h-3.5 w-3.5" /> In Progress
-                            </Badge>
-                          )}
-                        </div>
-                      </div>
-                    )}
                     <CardTitle className="mt-4">{p.title}</CardTitle>
                     <CardDescription>{p.description}</CardDescription>
                   </CardHeader>
@@ -227,14 +198,6 @@ export function Projects() {
                         <Link aria-label={`View ${p.title} on GitHub`} href={p.github} target="_blank" rel="noreferrer" onClick={(e) => e.stopPropagation()}>
                           <Github className="mr-2 h-4 w-4" />
                           <span>GitHub</span>
-                        </Link>
-                      </Button>
-                    )}
-                    {p.demo && (
-                      <Button asChild size="sm" className="group" onClick={(e) => e.stopPropagation()}>
-                        <Link aria-label={`Open live demo for ${p.title}`} href={p.demo} target="_blank" rel="noreferrer" onClick={(e) => e.stopPropagation()}>
-                          <ExternalLink className="mr-2 h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-                          <span>Live Demo</span>
                         </Link>
                       </Button>
                     )}

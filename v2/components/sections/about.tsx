@@ -9,7 +9,6 @@ import {
   Briefcase,
   CalendarCheck,
   Code2,
-  
   Wrench,
   Gauge,
   ShieldCheck,
@@ -20,6 +19,7 @@ import {
   ServerCog,
   FileCode,
   SquareCode,
+  Github,
 } from "lucide-react";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import { Button } from "@/components/ui/button";
@@ -46,11 +46,8 @@ export function About() {
 
   const initials = profile.name.split(" ").map((n) => n[0]).join("");
 
-  // Keep bio concise on the page
-  const shortBio = (() => {
-    const firstSentence = profile.bio.split(".")[0];
-    return firstSentence.endsWith(".") ? firstSentence : firstSentence + ".";
-  })();
+  // Use full bio from profile
+  const shortBio = profile.bio;
 
   const primaryTech = [
     { name: "React", Icon: Atom },
@@ -135,14 +132,14 @@ export function About() {
                   className="pointer-events-none absolute inset-0 -z-10 rounded-full bg-gradient-to-br from-primary/20 to-transparent blur-2xl"
                 />
                 <Avatar className="h-36 w-36 ring-2 ring-primary/20 shadow-lg">
-                  <AvatarImage src="/avatar-new.jpg" alt={`${profile.name} avatar`} />
+                  <AvatarImage src="https://avatars.githubusercontent.com/u/147039763?v=4" alt={`${profile.name} avatar`} />
                   <AvatarFallback className="bg-accent text-foreground/80">
                     {initials}
                   </AvatarFallback>
                 </Avatar>
               </div>
               <p className="mt-4 text-sm text-muted-foreground">
-                Based in {profile.location || "Remote"}
+                Based in {profile.location}
               </p>
             </CardContent>
           </Card>
@@ -175,12 +172,17 @@ export function About() {
               <Separator orientation="vertical" className="hidden h-6 sm:block" />
               <div className="flex items-center gap-2">
                 <MapPin className="h-4 w-4 text-primary" />
-                <span className="text-sm text-muted-foreground">{profile.location || "Remote"}</span>
+                <span className="text-sm text-muted-foreground">{profile.location}</span>
               </div>
               <Separator orientation="vertical" className="hidden h-6 sm:block" />
               <div className="flex items-center gap-2">
                 <CalendarCheck className="h-4 w-4 text-primary" />
                 <span className="text-sm text-muted-foreground">Open to opportunities</span>
+              </div>
+              <Separator orientation="vertical" className="hidden h-6 sm:block" />
+              <div className="flex items-center gap-2">
+                <Github className="h-4 w-4 text-primary" />
+                <a href={profile.github} target="_blank" rel="noopener noreferrer" className="text-sm text-primary underline">GitHub</a>
               </div>
             </CardContent>
           </Card>
