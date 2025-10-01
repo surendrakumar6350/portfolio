@@ -263,7 +263,7 @@ export const featuredSkills = [
 export const stats = [
   { label: "Years Experience", value: "4+" },
   { label: "Projects Shipped", value: "25+" },
-  { label: "GitHub Stars", value: "1k+" },
+  { label: "GitHub Stars", value: "100+" },
   { label: "Clients", value: "10+" },
 ];
 
