@@ -168,6 +168,18 @@ export function Projects() {
                   }}
                 >
                   <CardHeader>
+                    {p.image && (
+                      <div className="relative aspect-video overflow-hidden rounded-lg">
+                        <Image
+                          src={p.image}
+                          alt={`${p.title} preview`}
+                          fill
+                          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                          className="object-cover transition-transform duration-300 group-hover:scale-[1.03]"
+                          priority={false}
+                        />
+                      </div>
+                    )}
                     <CardTitle className="mt-4">{p.title}</CardTitle>
                     <CardDescription>{p.description}</CardDescription>
                   </CardHeader>
@@ -221,7 +233,7 @@ export function Projects() {
                 <DialogDescription>{selectedProject.description}</DialogDescription>
               </DialogHeader>
               {selectedProject.image && (
-                <div className="relative aspect-video overflow-hidden rounded-lg">
+                <div className="relative aspect-video overflow-hidden rounded-lg border border-white/10 bg-secondary/10">
                   <Image
                     src={selectedProject.image}
                     alt={`${selectedProject.title} preview`}
@@ -232,6 +244,7 @@ export function Projects() {
                 </div>
               )}
               <div className="space-y-4">
+                <div className="h-px w-full bg-white/10" />
                 <div>
                   <h4 className="mb-2 text-sm font-medium">Tech Stack</h4>
                   <div className="flex flex-wrap gap-2">
