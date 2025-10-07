@@ -49,58 +49,84 @@ async function ProjectPage(props: Props) {
     (p) => encodeURIComponent(p.slug) === encodeURIComponent(props.params.name)
   )!;
   return (
-    <div className="min-h-screen lg:pt-20 lg:p-0 p-5 container items-center justify-center flex-col lg:max-w-xl overflow-hidden">
-      <BackButton />
+    <div className="min-h-screen lg:pt-12 lg:p-0 p-5 container items-center justify-center flex-col lg:max-w-xl overflow-hidden">
+      <div className="mb-8">
+        <BackButton />
+      </div>
 
-      <ImageWithLoader
-        className="mx-auto rounded-md mt-5 object-cover w-[2/3] h-[1/3]"
-        src={project.image.url}
-        alt={project.image.alt}
-        loading="eager"
-        width={project.image.width}
-        height={project.image.height}
-      />
-
-      {project.image.source ? (
-        <p className="text-center text-gray-400">
-          Source: {project.image.source}
-        </p>
-      ) : null}
-      <div className="flex flex-row items-center my-5">
-        <h1 className="text-2xl font-bold text-left">{project.name}</h1>
-        <div className="flex flex-row items-center flex-nowrap ml-auto gap-2">
-          {Object.keys(project.urls).map((key: keyof typeof project.urls) => (
-            <a
-              href={project.urls[key]}
-              target="_blank"
-              rel="noreferrer"
-              key={key}
-              className="flex flex-row items-center justify-start gap-2.5 
-              text-white transition duration-300 ease-in-out
-              bg-neutral-700 hover:bg-neutral-900 rounded-md px-3 py-2.5"
-            >
-              {key === "githubUrl" ? (
-                <FiGithub className="text-white text-xl" />
-              ) : (
-                <FiExternalLink className="text-white text-xl" />
-              )}
-            </a>
-          ))}
+      <div className="relative w-full rounded-xl overflow-hidden h-64 mb-8">
+        <div 
+          className="absolute inset-0 bg-cover bg-center" 
+          style={{ 
+            backgroundImage: `url(${project.image.url})`,
+            backgroundPosition: 'center',
+          }}
+        ></div>
+        <div className="absolute inset-0 bg-black bg-opacity-40"></div>
+        <div className="absolute bottom-0 left-0 p-6 w-full">
+          <div className="mb-1 flex flex-wrap gap-2">
+            {project.tags.slice(0, 3).map((tag) => (
+              <span
+                key={tag}
+                className="text-xs bg-black bg-opacity-50 text-white font-medium rounded-full px-3 py-1"
+              >
+                {upperFirst(tag)}
+              </span>
+            ))}
+          </div>
+          <h1 className="text-3xl font-bold text-white">{project.name}</h1>
         </div>
       </div>
 
-      <div className="flex flex-col items-start justify-start gap-2.5">
-        <p className="text-lg text-left text-gray-300">{project.description}</p>
-        <div className="flex flex-row flex-wrap items-center justify-start gap-2.5">
+      {project.image.source ? (
+        <p className="text-center text-gray-500 text-sm mb-4">
+          Source: {project.image.source}
+        </p>
+      ) : null}
+
+      <div className="bg-neutral-900 border border-neutral-800 rounded-xl p-6 mb-8">
+        <h2 className="text-xl font-semibold text-white mb-4">About the Project</h2>
+        <p className="text-gray-300 leading-relaxed">{project.description}</p>
+      </div>
+
+      <div className="flex flex-col gap-4">
+        <h2 className="text-xl font-semibold text-white">Technologies Used</h2>
+        <div className="flex flex-wrap gap-2 mb-6">
           {project.tags?.map((tag) => (
             <span
               key={tag}
-              className=" text-sm bg-neutral-200 text-black font-medium rounded-xl px-2 py-1 mb-5"
+              className="text-sm bg-neutral-800 text-gray-200 font-medium rounded-lg px-3 py-1.5"
             >
               {upperFirst(tag)}
             </span>
           ))}
         </div>
+      </div>
+
+      <div className="flex flex-row items-center justify-center gap-4 mt-4 mb-12">
+        {Object.keys(project.urls).map((key: keyof typeof project.urls) => (
+          <a
+            href={project.urls[key]}
+            target="_blank"
+            rel="noreferrer"
+            key={key}
+            className="flex flex-row items-center justify-center gap-2 
+            text-white transition duration-300 ease-in-out
+            bg-neutral-800 hover:bg-neutral-700 rounded-lg px-5 py-3 w-full"
+          >
+            {key === "githubUrl" ? (
+              <>
+                <FiGithub className="text-white text-xl" />
+                <span>View Code</span>
+              </>
+            ) : (
+              <>
+                <FiExternalLink className="text-white text-xl" />
+                <span>Live Demo</span>
+              </>
+            )}
+          </a>
+        ))}
       </div>
     </div>
   );
