@@ -22,7 +22,7 @@ export const Projects: Project[] = [
     name: "Freezer",
     slug: "freezer",
     image: {
-      url: "/refelia.webp",
+      url: "/freezerr.png",
       width: 400,
       height: 200,
       alt: "Freezer - Modern S3 File Explorer"
@@ -44,7 +44,7 @@ export const Projects: Project[] = [
     name: "Notification Simulator",
     slug: "notification-simulator",
     image: {
-      url: "/detox.webp",
+      url: "/notification.png",
       width: 400,
       height: 200,
       alt: "Notification Simulator - A tool for sending multiple SMS messages efficiently"
