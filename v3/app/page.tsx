@@ -279,10 +279,7 @@ export default function Home() {
             ))}
           </div>
 
-          <div className="mt-8 w-full">
-            <div className="flex justify-between items-center mb-4">
-              <h2 className="text-lg text-white font-semibold">More Projects</h2>
-            </div>
+          <div className="mt-8 w-full"> 
             <div className="flex flex-col">
               {Projects.slice(4, 7).map((project) => (
                 <Link
