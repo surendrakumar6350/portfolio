@@ -1,26 +1,9 @@
 <div align="center">
 
-# ✨ Surendra Kumar's Portfolio ✨
-
 <a href="https://surendrakumar6350.vercel.app">
-  <img src="v3/public/port.webp" alt="Portfolio Preview" width="100%" style="border-radius:15px; box-shadow: 0 20px 40px rgba(0,0,0,0.6);">
+ <img width="1038" height="599" alt="image" src="https://github.com/user-attachments/assets/11aa9f1b-1395-4324-8658-8ba35f54e147" />
 </a>
 
-### 🚀 Modern ## 🗺️ Roadmap
-
-<div align="center">
-
-| Status | Feature | Description |
-|:------:|---------|-------------|
-| ✅ | Core Portfolio | Projects, experience, and contact information |
-| ✅ | Responsive Design | Mobile-first design that works everywhere |
-| ⏳ | Open Graph Images | Dynamic OG images for better social sharing |
-| 🔜 | Analytics Integration | Privacy-friendly analytics (Plausible/Vercel) |
-| 🔜 | Automated Tests | Unit/integration tests for components |
-| 💡 | CI/CD Pipeline | GitHub Actions for automated testing |
-| 💡 | Internationalization | Multiple language support |
-
-</div>
 
 ## 📬 Connect With Me
 
@@ -28,7 +11,7 @@
   
 [![GitHub](https://img.shields.io/badge/GitHub-222222?style=for-the-badge&logo=github&logoColor=white)](https://github.com/surendrakumar6350)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/surendra-kumar-7a738b287/)
-[![Email](https://img.shields.io/badge/Email-EA4335?style=for-the-badge&logo=gmail&logoColor=white)](mailto:admin@surendra-dev.in.net)
+[![Email](https://img.shields.io/badge/Email-EA4335?style=for-the-badge&logo=gmail&logoColor=white)](mailto:kamleshksks456@gmail.com)
 [![Portfolio](https://img.shields.io/badge/Portfolio-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://surendrakumar6350.vercel.app)
 
 </div>
@@ -45,7 +28,7 @@ MIT © Surendra Kumar
 
 <p>If you find this portfolio helpful, please consider giving it a ⭐</p>
 
-</div>t 🚀
+</div>
 
 <p>A stunning developer portfolio showcasing projects and skills with a beautiful dark UI</p>
 
@@ -61,10 +44,6 @@ MIT © Surendra Kumar
 </div>
 
 ---
-
-### 🌟 **Showcase Your Best Work in Style** 🌟
-
-A personal portfolio that stands out - built with modern frontend technologies, optimized for performance, accessibility, and visual impact. This portfolio template features a stunning dark theme, smooth animations, and an exceptional user experience.
 
 > 👉 **[Click to see it live](https://surendrakumar6350.vercel.app)** 👈
 
@@ -173,12 +152,12 @@ cd portfolio/v3
 
 2️⃣ **Install dependencies**
 ```bash
-npm install   # or yarn install or pnpm install
+pnpm install   # or yarn install or pnpm install
 ```
 
 3️⃣ **Start development server**
 ```bash
-npm run dev   # or yarn dev or pnpm dev
+pnpm run dev   # or yarn dev or pnpm dev
 ```
 
 4️⃣ **View your portfolio**  
@@ -194,27 +173,6 @@ Open [http://localhost:3000](http://localhost:3000) in your browser
   </a>
 </div>
 
-<details>
-<summary><b>🌐 Deploy on Vercel</b></summary>
-<br>
-
-1️⃣ **Connect to GitHub**
-- Create a Vercel account if you don't have one
-- Import your repository from GitHub
-
-2️⃣ **Configure project**
-- Set the root directory to `/v3` when prompted
-- Override build command if needed: `npm run build`
-
-3️⃣ **Environment variables** (optional)
-```
-NEXT_PUBLIC_SITE_URL=https://your-custom-domain.com
-```
-
-4️⃣ **Deploy!**
-- Your portfolio will be automatically deployed whenever you push changes to the main branch
-
-</details>
 
 <details>
 <summary><b>🔄 Environment Variables</b></summary>
@@ -314,7 +272,7 @@ If you want, I can implement any of the above — tell me which one and I’ll m
 
 - GitHub: https://github.com/surendrakumar6350
 - LinkedIn: https://www.linkedin.com/in/surendra-kumar-7a738b287/
-- Email: admin@surendra-dev.in.net
+- Email: kamleshksks456@gmail.com
 
 ## License
 
