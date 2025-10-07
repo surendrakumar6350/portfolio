@@ -2,7 +2,10 @@ import { MetadataRoute } from 'next'
 import { Projects } from '@/constants'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://ayush-go.vercel.app/'
+  const envUrl = process.env.NEXT_PUBLIC_SITE_URL || process.env.NEXT_PUBLIC_VERCEL_URL
+  const defaultUrl = 'https://surendrakumar6350.vercel.app'
+  const base = envUrl ? (envUrl.startsWith('http') ? envUrl : `https://${envUrl}`) : defaultUrl
+  const baseUrl = base.endsWith('/') ? base : base + '/'
   
   // Base routes
   const routes = [

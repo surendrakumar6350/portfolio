@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { JetBrains_Mono } from "next/font/google";
 
 const jetbrainsMono = JetBrains_Mono({ subsets: ["latin"] });
@@ -43,7 +44,9 @@ export default function WorkExperience() {
             target="_blank"
           >
             <article className="mt-3 mb-3 flex md:items-center items-start">
-              <img src={exp.image} alt={exp.company} className="w-10 h-10 mr-3 rounded-md mt-0.5 md:mt-0" />
+              <div className="w-10 h-10 mr-3 rounded-md mt-0.5 md:mt-0 overflow-hidden">
+                <Image src={exp.image} alt={exp.company} width={40} height={40} className="object-cover" />
+              </div>
               <div className="flex-grow">
                 <div className="flex justify-between items-center">
                   <h1 className="text-lg font-medium leading-[1.3em] text-left text-gray-300">

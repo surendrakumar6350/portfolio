@@ -240,8 +240,9 @@ export default function Home() {
             {Projects.slice(0, 4).map((project) => (
               <Link
                 className="group"
-                key={project.name.replace(" ", "-")}
+                key={project.slug}
                 href={`/project/${project.slug}`}
+                aria-label={`Open ${project.name} project page`}
               >
                 <article className="bg-neutral-900 rounded-lg overflow-hidden border border-neutral-800 hover:border-neutral-700 transition-all duration-300">
                   <div className="relative h-40 w-full overflow-hidden">
@@ -284,8 +285,9 @@ export default function Home() {
               {Projects.slice(4, 7).map((project) => (
                 <Link
                   className="proj group"
-                  key={project.name.replace(" ", "-")}
+                  key={project.slug}
                   href={`/project/${project.slug}`}
+                  aria-label={`Open ${project.name} project page`}
                 >
                   <article className="flex flex-row gap-0 items-center justify-between mt-3 mb-3 w-full hover:bg-neutral-900/50 rounded-md p-3 transition-all duration-200">
                     <div className="flex flex-col justify-start opacity-100 flex-none shrink-0 h-auto relative whitespace-pre w-auto mr-3">

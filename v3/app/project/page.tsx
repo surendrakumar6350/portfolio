@@ -19,7 +19,7 @@ export default function Project() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
             {Projects.map((project) => (
               <div 
-                key={project.name.replace(" ", "-")} 
+                key={project.slug} 
                 className="bg-neutral-900 rounded-lg overflow-hidden border border-neutral-800 hover:border-neutral-700 transition-all duration-300 flex flex-col h-full"
               >
                 <div className="relative h-40 w-full overflow-hidden">
@@ -69,7 +69,7 @@ export default function Project() {
                         target="_blank"
                         rel="noreferrer" 
                         className="bg-neutral-800 hover:bg-neutral-700 text-white p-2 rounded-md transition-all duration-200"
-                        aria-label="GitHub Repository"
+                        aria-label={`${project.name} GitHub Repository`}
                       >
                         <FiGithub size={18} />
                       </a>
@@ -81,7 +81,7 @@ export default function Project() {
                         target="_blank"
                         rel="noreferrer" 
                         className="bg-neutral-800 hover:bg-neutral-700 text-white p-2 rounded-md transition-all duration-200"
-                        aria-label="Live Demo"
+                        aria-label={`${project.name} Live Demo`}
                       >
                         <FiExternalLink size={18} />
                       </a>
