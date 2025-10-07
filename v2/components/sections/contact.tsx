@@ -5,7 +5,6 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Form } from "@/components/ui/form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
@@ -13,6 +12,7 @@ import { Mail, Github, Linkedin, MapPin, Download } from "lucide-react";
 import { profile } from "@/data/content";
 import { useToast } from "@/components/ui/use-toast";
 import { FadeIn } from "@/components/animations";
+import SectionHeader from "@/components/section-header";
 
 const contactSchema = z.object({
   name: z.string().min(2, "Name is too short"),
@@ -97,7 +97,7 @@ export function Contact() {
         title: "Resume downloaded",
         description: "The resume has been downloaded to your device"
       });
-    } catch (error) {
+    } catch {
       toast({
         title: "Download failed",
         description: "Please try again later",
@@ -110,8 +110,8 @@ export function Contact() {
 
   return (
     <FadeIn>
-  <section id="contact" className="container mx-auto scroll-mt-24 px-4 py-16 md:py-24">
-        <h2 className="mb-8 text-3xl font-semibold tracking-tight">Contact</h2>
+    <section id="contact" className="container mx-auto scroll-mt-24 px-4 py-2 md:py-4">
+  <SectionHeader title="Contact" subtitle="Let’s build something great together." />
         
         <div className="grid gap-8 md:grid-cols-2">
           {/* Contact information */}

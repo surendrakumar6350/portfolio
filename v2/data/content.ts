@@ -6,6 +6,9 @@ export type Project = {
   demo?: string;
   image?: string;
   features?: string[];
+  status?: "featured" | "in-progress" | "shipped" | "open-source";
+  category?: "web-app" | "open-source" | "library" | "tool";
+  metrics?: { stars?: string; users?: string; downloads?: string };
 };
 
 export type ExperienceItem = {
@@ -35,15 +38,15 @@ export type ExploringTech = {
 
 export const profile = {
   name: "Surendra Kumar",
-  title: "MERN Stack Developer",
+  title: "Full Stack Developer",
   tagline: "I build fast, accessible, and scalable web apps.",
   bio:
-    "MERN-focused developer crafting modern, performant, and accessible web experiences. I enjoy building end-to-end features, clean APIs, and delightful UIs.",
-  location: "City, Country",
-  email: "you@example.com",
-  github: "https://github.com/your",
-  linkedin: "https://linkedin.com/in/your",
-  resume: "/resume.pdf",
+    "Passionate developer with 994+ contributions in the last year. Experienced in TypeScript, JavaScript, React, Node.js, and modern web technologies. Building secure chat apps, AI-powered tools, and efficient web solutions.",
+  location: "Rajasthan, India",
+  email: "",
+  github: "https://github.com/surendrakumar6350",
+  linkedin: "",
+  resume: "/SurendraKumarResume.pdf",
 };
 
 export const skills = [
@@ -109,50 +112,44 @@ export const exploringTech: ExploringTech[] = [
 
 export const projects: Project[] = [
   {
-    title: "SaaS Dashboard",
-    description: "Analytics dashboard with auth, charts, and billing.",
-    stack: ["Next.js", "TypeScript", "Postgres", "Prisma"],
-    github: "https://github.com/your/saas-dashboard",
-    demo: "https://saas.example.com",
-    image: "/projects/saas-dashboard.png",
-    features: [
-      "User authentication with NextAuth.js",
-      "Real-time analytics with Chart.js",
-      "Subscription management with Stripe",
-      "Responsive dashboard layout",
-      "Dark mode support"
-    ]
+    title: "Notification Simulator",
+    description: "This is a user-friendly website designed to facilitate the sending of multiple SMS messages efficiently.",
+    stack: ["TypeScript", "React", "Next.js"],
+    github: "https://github.com/surendrakumar6350/notification-simulator",
+    demo: "",
+  image: "/projects/notification-simulator.svg",
+    status: "featured",
+    category: "web-app",
   },
   {
-    title: "Realtime Chat",
-    description: "Socket.io chat with rooms, presence, and file uploads.",
-    stack: ["React", "Node.js", "MongoDB", "Socket.io"],
-    github: "https://github.com/your/realtime-chat",
+    title: "Chat App",
+    description: "Secure anonymous chat platform built with React (frontend) and WebSocket (Node.js) (backend).",
+    stack: ["TypeScript", "React", "Node.js", "WebSocket"],
+    github: "https://github.com/surendrakumar6350/chat-app",
+    demo: "",
+  image: "/projects/chat-app.svg",
+    status: "open-source",
+    category: "web-app",
   },
   {
-    title: "E-commerce Store",
-    description: "Full-stack store with cart, checkout, and admin.",
-    stack: ["Next.js", "Stripe", "MongoDB"],
-    github: "https://github.com/your/ecommerce",
-    demo: "https://shop.example.com",
+    title: "Audio Scribe",
+    description: "AI-powered tool for converting speech to text and translating transcriptions into multiple languages.",
+    stack: ["JavaScript", "React"],
+    github: "https://github.com/surendrakumar6350/audio-scribe",
+    demo: "",
+  image: "/projects/audio-scribe.svg",
+    status: "open-source",
+    category: "tool",
   },
   {
-    title: "Component Library",
-    description: "Reusable UI components and docs site.",
-    stack: ["React", "TypeScript", "Tailwind CSS"],
-    github: "https://github.com/your/ui-lib",
-  },
-  {
-    title: "Markdown Blog",
-    description: "Static blog with MDX, tags, and search.",
-    stack: ["Next.js", "MDX"],
-    github: "https://github.com/your/mdx-blog",
-  },
-  {
-    title: "API Boilerplate",
-    description: "Express API with auth, testing, and CI.",
-    stack: ["Express", "TypeScript", "Jest"],
-    github: "https://github.com/your/api-starter",
+    title: "YT2Download",
+    description: "A simple tool for downloading YouTube videos quickly and easily, built with JavaScript and modern web technologies.",
+    stack: ["JavaScript", "React"],
+    github: "https://github.com/surendrakumar6350/yt2download",
+    demo: "",
+  image: "/projects/yt2download.svg",
+    status: "open-source",
+    category: "tool",
   },
 ];
 
@@ -266,7 +263,7 @@ export const featuredSkills = [
 export const stats = [
   { label: "Years Experience", value: "4+" },
   { label: "Projects Shipped", value: "25+" },
-  { label: "GitHub Stars", value: "1k+" },
+  { label: "GitHub Stars", value: "100+" },
   { label: "Clients", value: "10+" },
 ];
 
