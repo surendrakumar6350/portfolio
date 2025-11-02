@@ -73,7 +73,7 @@ export const Projects: Project[] = [
     },
     urls: {
       githubUrl: "https://github.com/surendrakumar6350/chat-app",
-      liveUrl: "https://chat-app-sigma-taupe.vercel.app/",
+      liveUrl: "#",
     },
     description: "A secure anonymous chat platform built with React (frontend) and WebSocket (Node.js) for the backend. It features real-time messaging, secure communications, and an intuitive interface.",
     tags: [

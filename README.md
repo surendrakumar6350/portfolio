@@ -229,7 +229,7 @@ Contributions are always welcome! Follow these steps:
 1. **Fork the repository**
 2. **Clone your fork**
    ```bash
-   git clone https://github.com/your-username/portfolio.git
+   git clone https://github.com/surendrakumar6350/portfolio.git 
    ```
 3. **Create a branch**
    ```bash
