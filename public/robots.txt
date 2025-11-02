@@ -1,5 +1,0 @@
-User-agent: *
-Allow: /
-
-# Sitemap file
-Sitemap: https://ani.ink/sitemap.xml

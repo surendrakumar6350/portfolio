@@ -10,8 +10,7 @@ import WorkExperience from "@/components/workexp";
 import Links from "@/components/links";
 
 export default function Home() {
-  // Since exact birthdate wasn't available, calculating approximately based on being an Engineering student
-  const birthDate = new Date("2003-01-01");
+  const birthDate = new Date("2004-07-10");
   const today = new Date();
   const age =
     today.getFullYear() -
@@ -280,7 +279,7 @@ export default function Home() {
             ))}
           </div>
 
-          <div className="mt-8 w-full"> 
+          <div className="mt-8 w-full">
             <div className="flex flex-col">
               {Projects.slice(4, 7).map((project) => (
                 <Link

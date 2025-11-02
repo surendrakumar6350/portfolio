@@ -1,12 +1,10 @@
 import "./globals.css";
 import { Hanken_Grotesk } from "next/font/google";
 const font = Hanken_Grotesk({ subsets: ["latin"] });
-import { OpenPanelComponent } from '@openpanel/nextjs';
-import Script from "next/script";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://surendra-dev.in.net"),
+  metadataBase: new URL("https://surendrakumar6350.vercel.app"),
   title: {
     default: "Surendra Kumar",
     template: "%s | Surendra Kumar",
@@ -26,13 +24,13 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://surendra-portfolio.vercel.app/",
+    url: "https://surendrakumar6350.vercel.app",
     siteName: "Surendra Kumar's Portfolio",
     title: "Surendra Kumar - Full Stack Web Developer",
     description: "Full Stack Web Developer and Engineering Student from Rajasthan, India, specializing in React, Next.js, and Node.js.",
     images: [
       {
-        url: "/og1.png",
+        url: "https://surendrakumar6350.vercel.app/og1.png",
         width: 1200,
         height: 675,
         alt: "Surendra Kumar's Profile Picture",
@@ -45,7 +43,7 @@ export const metadata: Metadata = {
     creator: "@surendrakumar6350",
     images: [
       {
-        url: "/og1.png",
+        url: "https://surendrakumar6350.vercel.app/og1.png",
         width: 1200,
         height: 675,
         alt: "Surendra Kumar's Profile Picture",
@@ -62,12 +60,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${font.className} bg-[#111010] flex justify-center`}>
-        <OpenPanelComponent
-          clientId="89e02301-b6bb-4341-a2b4-29d138532b7b"
-          trackScreenViews={true}
-        />
         {children}
-        <Script src="/oneko.js" strategy="afterInteractive" />
       </body>
     </html>
   );

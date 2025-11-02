@@ -29,7 +29,7 @@ export const Projects: Project[] = [
     },
     urls: {
       githubUrl: "https://github.com/surendrakumar6350/freezer",
-      liveUrl: "https://freezer-sigma.vercel.app/",
+      liveUrl: "https://freezer-xi.vercel.app",
     },
     description: "A sleek, modern S3 file explorer that transforms how you manage your cloud storage. Built with Next.js 14 and featuring JWT authentication, it offers enterprise-grade security with a beautiful, intuitive interface.",
     tags: [
@@ -51,7 +51,7 @@ export const Projects: Project[] = [
     },
     urls: {
       githubUrl: "https://github.com/surendrakumar6350/notification-simulator",
-      liveUrl: "https://notification-simulator.vercel.app/",
+      liveUrl: "https://smsbomber.live",
     },
     description: "A user-friendly website designed to facilitate the sending of multiple SMS messages efficiently. Built with TypeScript and modern web technologies, it provides an intuitive interface for managing notifications.",
     tags: [
@@ -72,7 +72,7 @@ export const Projects: Project[] = [
       alt: "Chat App - Secure anonymous chat platform"
     },
     urls: {
-      githubUrl:"https://github.com/surendrakumar6350/chat-app",
+      githubUrl: "https://github.com/surendrakumar6350/chat-app",
       liveUrl: "https://chat-app-sigma-taupe.vercel.app/",
     },
     description: "A secure anonymous chat platform built with React (frontend) and WebSocket (Node.js) for the backend. It features real-time messaging, secure communications, and an intuitive interface.",
@@ -95,7 +95,7 @@ export const Projects: Project[] = [
     },
     urls: {
       githubUrl: "https://github.com/surendrakumar6350/audio-scribe",
-      liveUrl: "https://audio-scribe.vercel.app/",
+      liveUrl: "https://audio-scribe-ashy.vercel.app",
     },
     description: "Audio Scribe is an AI-powered tool for converting speech to text and translating transcriptions into multiple languages. Experience seamless voice-to-text conversion with high accuracy.",
     tags: [
